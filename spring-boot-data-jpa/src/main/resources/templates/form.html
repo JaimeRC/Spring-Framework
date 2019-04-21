@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymelealf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${titulo}">Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Spring Boot</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">Home</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" th:href="@{/listar}">Cliente</a>
+            </li>
+
+
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <hi th:text="${titulo}}"
+        class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></hi>
+
+    <form th:action="@{/form}" th:object="${cliente}" method="post">
+        <table class="table table-bordered" r>
+                <td style="width: 200px">Nombre</td>
+                <td><input type="text" th:field="*{nombre}" class="form-control" th:errorclass="form-control alert-danger"/></td>
+                <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></td>
+            </tr>
+            <tr>
+                <td>Apellido</td>
+                <td><input type="text" th:field="*{apellido}" class="form-control" th:errorclass="form-control alert-danger"/></td>
+                <td th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></td>
+
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" th:field="*{email}" class="form-control" th:errorclass="form-control alert-danger"/></td>
+                <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+
+            </tr>
+            <tr>
+                <td>Fecha</td>
+                <td><input type="text" th:field="*{createAt}" class="form-control" th:errorclass="form-control alert-danger"/></td>
+                <td th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}"></td>
+
+            </tr>
+            <tr>
+                <td><input type="submit" value="Crear Cliente" class="btn btn-primary" /></td>
+            </tr>
+        </table>
+
+       <!-- <input type="hidden" th:field="*{id}"/> No usando SessionAtributte -->
+
+    </form>
+</div>
+</body>
+</html>
