@@ -3,6 +3,8 @@ package com.course.springboot.datajpa.app.models.service;
 import com.course.springboot.datajpa.app.models.dao.IClienteDao;
 import com.course.springboot.datajpa.app.models.entity.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,12 +31,18 @@ public class ClienteServiceImpl implements IClienteService {
     @Transactional(readOnly = true)
     @Override
     public Cliente findOne(Long id) {
-        return clienteDao.findById(id).orElse(null);
+        return (Cliente) clienteDao.findById(id).orElse(null);
     }
 
     @Transactional
     @Override
     public void delete(Long id) {
         clienteDao.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Page<Cliente> findAll(Pageable pageable) {
+        return clienteDao.findAll(pageable);
     }
 }
