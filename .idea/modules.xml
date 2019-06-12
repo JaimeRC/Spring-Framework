@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/spring-boot-app-jsp/spring-boot-app-jsp.iml" filepath="$PROJECT_DIR$/spring-boot-app-jsp/spring-boot-app-jsp.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-data-jpa/spring-boot-data-jpa.iml" filepath="$PROJECT_DIR$/spring-boot-data-jpa/spring-boot-data-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-data-jpa-sis_fact/spring-boot-data-jpa-sis_fact.iml" filepath="$PROJECT_DIR$/spring-boot-data-jpa-sis_fact/spring-boot-data-jpa-sis_fact.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-thymelealf/spring-boot-thymelealf.iml" filepath="$PROJECT_DIR$/spring-boot-thymelealf/spring-boot-thymelealf.iml" />
     </modules>
   </component>

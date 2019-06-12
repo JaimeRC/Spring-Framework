@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/spring-boot-thymelealf/pom.xml" />
         <option value="$PROJECT_DIR$/spring-boot-app-jsp/pom.xml" />
         <option value="$PROJECT_DIR$/spring-boot-data-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-data-jpa-sis_fact/pom.xml" />
       </list>
     </option>
   </component>
@@ -78,5 +79,5 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

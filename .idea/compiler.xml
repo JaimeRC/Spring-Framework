@@ -8,12 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-boot-thymelealf" />
         <module name="spring-boot-app-jsp" />
+        <module name="spring-boot-data-jpa-sis_fact" />
         <module name="spring-boot-data-jpa" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="spring-boot-app-jsp" target="1.8" />
       <module name="spring-boot-data-jpa" target="1.8" />
+      <module name="spring-boot-data-jpa-sis_fact" target="11" />
       <module name="spring-boot-thymelealf" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -21,6 +23,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="spring-boot-app-jsp" options="-parameters" />
       <module name="spring-boot-data-jpa" options="-parameters" />
+      <module name="spring-boot-data-jpa-sis_fact" options="-parameters" />
       <module name="spring-boot-thymelealf" options="-parameters" />
     </option>
   </component>
