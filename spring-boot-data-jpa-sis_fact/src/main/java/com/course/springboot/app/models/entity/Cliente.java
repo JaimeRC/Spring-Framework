@@ -1,100 +1,112 @@
 package com.course.springboot.app.models.entity;
 
-import java.io.Serializable;
-import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.format.annotation.DateTimeFormat;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
 public class Cliente implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotEmpty
-	private String nombre;
-	
-	@NotEmpty
-	private String apellido;
-	
-	@NotEmpty
-	@Email
-	private String email;
+    @NotEmpty
+    private String nombre;
 
-	@NotNull
-	@Column(name = "create_at")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date createAt;
+    @NotEmpty
+    private String apellido;
 
-	private String foto;
-	
-	public Long getId() {
-		return id;
-	}
+    @NotEmpty
+    @Email
+    private String email;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @NotNull
+    @Column(name = "create_at")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date createAt;
 
-	public String getNombre() {
-		return nombre;
-	}
+    private String foto;
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Factura> facturas;
 
-	public String getApellido() {
-		return apellido;
-	}
+    public Cliente() {
+        facturas = new ArrayList<>();
+    }
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public Date getCreateAt() {
-		return createAt;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
-	}
-	
-	public String getFoto() {
-		return foto;
-	}
+    public String getApellido() {
+        return apellido;
+    }
 
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	private static final long serialVersionUID = 1L;
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    private static final long serialVersionUID = 1L;
+
+    public List<Factura> getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(List<Factura> facturas) {
+        this.facturas = facturas;
+    }
+
+    public void addFactura(Factura factura) {
+        this.facturas.add(factura);
+    }
 }
